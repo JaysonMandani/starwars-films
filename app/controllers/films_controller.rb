@@ -4,19 +4,11 @@ class FilmsController < ApplicationController
   base_uri 'https://swapi.co/api/'
 
   def index
-    begin
-      data = self.class.get("/films/")
-      @films = data['results']
-    rescue StandardError => e
-      return e
-    end
+    data = self.class.get("/films/")
+    @films = data['results']
   end
 
   def show
-    begin
-      @film = self.class.get("/films/#{params[:id]}")
-    rescue StandardError => e
-      return e
-    end
+    @film = self.class.get("/films/#{params[:id]}")
   end
 end
