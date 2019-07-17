@@ -1,0 +1,132 @@
+.jumbotron
+  .row
+    .col-10
+      %label Title:
+      = @film['title']
+  .row
+    .col-10
+      %label Opening Crawl:
+      = @film['opening_crawl']
+  .row
+    .col-10
+      %label Director:
+      = @film['director']
+  .row
+    .col-10
+      %label Producer:
+      = @film['producer']
+  .row
+    .col-10
+      %label Release Date:
+      = @film['release_date']
+  .row
+    .col-10
+      %label Created:
+      = @film['created']
+  .row
+    .col-10
+      %label Edited:
+      = @film['edited']
+  .row
+    .col-10
+      %label URL:
+      = @film['url']
+  .row
+    .col-10
+      %label Characters:
+      - get_details(@film['characters']).each do |character|
+        .name
+          = character['name']
+          .tooltiptext
+            %span
+              Height: #{character['height']}
+            %span
+              Mass: #{character['mass']}
+            %span
+              Hair Color: #{character['hair_color']}
+            %span
+              Skin Color: #{character['skin_color']}
+            %span
+              Birth Year: #{character['birth_year']}
+            %span
+              Eye Color: #{character['eye_color']}
+
+  .row
+    .col-10
+      %label Starships:
+      - get_details(@film['starships']).each do |starship|
+        .name
+          = starship['name']
+          .tooltiptext
+            %span
+              Model: #{starship['model']}
+            %span
+              Manufacturer: #{starship['manufacturer']}
+            %span
+              Cost In Credits: #{starship['cost_in_credits']}
+            %span
+              Max Atmosphering Speed: #{starship['max_atmosphering_speed']}
+            %span
+              Crew: #{starship['crew']}
+            %span
+              Passengers: #{starship['passengers']}
+            %span
+              Cargo Capacity: #{starship['cargo_capacity']}
+
+  .row
+    .col-10
+      %label Planets:
+      - get_details(@film['planets']).each do |planet|
+        .name
+          = planet['name']
+          .tooltiptext
+            %span
+              Rotation Period: #{planet['rotation_period']}
+            %span
+              Orbital Period: #{planet['orbital_period']}
+            %span
+              Diameter: #{planet['diameter']}
+            %span
+              Terrain: #{planet['terrain']}
+            %span
+              Population: #{planet['population']}
+
+  .row
+    .col-10
+      %label Species:
+      - get_details(@film['species']).each do |specie|
+        .name
+          = specie['name']
+          .tooltiptext
+            %span
+              Classification: #{specie['height']}
+            %span
+              Designation: #{specie['mass']}
+            %span
+              Average Height: #{specie['average_height']}
+            %span
+              Average Lifespan: #{specie['average_lifespan']}
+
+  .row
+    .col-10
+      %label Vehicles:
+      - get_details(@film['vehicles']).each do |vehicle|
+        .name
+          = vehicle['name']
+          .tooltiptext
+            %span
+              Model: #{vehicle['model']}
+            %span
+              Manufacturer: #{vehicle['manufacturer']}
+            %span
+              Cost In Credits: #{vehicle['cost_in_credits']}
+            %span
+              Max Atmosphering Speed: #{vehicle['max_atmosphering_speed']}
+            %span
+              Crew: #{vehicle['crew']}
+            %span
+              Passengers: #{vehicle['passengers']}
+            %span
+              Cargo Capacity: #{vehicle['cargo_capacity']}
+
+= link_to 'Back', root_path, class: 'btn btn-primary'

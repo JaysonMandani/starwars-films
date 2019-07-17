@@ -1,0 +1,22 @@
+.jumbotron
+  %label{:for => "inputSearch"} Search
+  %input#searchInput.form-control{"aria-describedby" => "searchHelpBlock"}/
+  %small#searchHelpBlock.form-text.text-muted
+    Enter title of the Star Wars Film
+  %table#filmsTable.table.table-hover.table-stripped
+    %thead
+      %tr
+        %th Title
+        %th Release
+        %th Director
+        %th Producer
+        %th Favourite
+    %tbody
+      - @films.each do |film|
+        - id = get_id(film['url'])
+        %tr{"data-film_id" => id}
+          %td.align-middle= link_to film['title'], film_path(get_id(film['url']))
+          %td.align-middle= film['release_date']
+          %td.align-middle= film['director']
+          %td.align-middle= film['producer']
+          %td.align-middle.fav-film No
